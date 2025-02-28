@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/nerdamer@latest/nerdamer.core.js"></script>
+    <script src="https://unpkg.com/nerdamer@latest/Algebra.js"></script>
+    <script src="https://unpkg.com/nerdamer@latest/Calculus.js"></script>
+    <script src="https://unpkg.com/nerdamer@latest/Solve.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-content">
+            <div class="calculator">
+                <button id="toggle-theme" class="btn btn-dark mb-2">🌙 Dark mode</button>
+                <button id="toggle-history" class="btn btn-secondary mb-2">📜 View history</button>
+                <button onclick="copyResult()" class="btn btn-info mb-2">Copy Result</button>
+                <input type="text" id="display" class="form-control mb-3" readonly>
+                <div class="buttons">
+                    <button onclick="memoryClear()" class="btn btn-secondary">MC</button>
+                    <button onclick="memoryRecall()" class="btn btn-secondary">MR</button>
+                    <button onclick="memoryAdd()" class="btn btn-secondary">M+</button>
+                    <button onclick="memorySubtract()" class="btn btn-secondary">M-</button>
+                    <button onclick="clearDisplay()" class="btn btn-danger">C</button>
+                    <button onclick="deleteLast()" class="btn btn-warning">←</button>
+                    <button onclick="appendToDisplay('%')" class="btn btn-primary">%</button>
+                    <button onclick="appendToDisplay('/')" class="btn btn-primary">/</button>
+                    <button onclick="appendToDisplay('7')" class="btn btn-light">7</button>
+                    <button onclick="appendToDisplay('8')" class="btn btn-light">8</button>
+                    <button onclick="appendToDisplay('9')" class="btn btn-light">9</button>
+                    <button onclick="appendToDisplay('*')" class="btn btn-primary">*</button>
+                    <button onclick="appendToDisplay('4')" class="btn btn-light">4</button>
+                    <button onclick="appendToDisplay('5')" class="btn btn-light">5</button>
+                    <button onclick="appendToDisplay('6')" class="btn btn-light">6</button>
+                    <button onclick="appendToDisplay('-')" class="btn btn-primary">-</button>
+                    <button onclick="appendToDisplay('1')" class="btn btn-light">1</button>
+                    <button onclick="appendToDisplay('2')" class="btn btn-light">2</button>
+                    <button onclick="appendToDisplay('3')" class="btn btn-light">3</button>
+                    <button onclick="appendToDisplay('+')" class="btn btn-primary">+</button>
+                    <button onclick="appendToDisplay('0')" class="btn btn-light double">0</button>
+                    <button onclick="appendToDisplay('.')" class="btn btn-light">.</button>
+                    <button onclick="calculateResult()" class="btn btn-primary blue-equal">=</button>
+                    <button onclick="calculateSquareRoot()" class="btn btn-success">√</button>
+                    <button onclick="calculatePower()" class="btn btn-success">xʸ</button>
+                    <button onclick="calculateFactorial()" class="btn btn-success">n!</button>
+                    <button onclick="calculateLog10()" class="btn btn-success">log₁₀</button>
+                    <button onclick="calculateSin()" class="btn btn-info">sin</button>
+                    <button onclick="calculateCos()" class="btn btn-info">cos</button>
+                    <button onclick="calculateTan()" class="btn btn-info">tan</button>
+                    <button onclick="appendToDisplay('π')" class="btn btn-info">π</button>
+                    <button onclick="appendToDisplay('e')" class="btn btn-info">e</button>
+                    <button onclick="calculateExp()" class="btn btn-info">exp</button>
+                    <button onclick="calculateLn()" class="btn btn-info">ln</button>
+                    <button onclick="appendToDisplay('x')" class="btn btn-info">x</button>
+                    <button onclick="solveEquation()" class="btn btn-warning">Solve x</button>
+                    <button id="equation-equal" class="btn btn-success green-equal" onclick="appendToDisplay('=')">=</button>
+                    <button onclick="calculateSinh()" class="btn btn-info">sinh</button>
+                    <button onclick="calculateCosh()" class="btn btn-info">cosh</button>
+                    <button onclick="calculateTanh()" class="btn btn-info">tanh</button>
+                    <button onclick="calculateLog2()" class="btn btn-success">log₂</button>
+                    <button onclick="calculateMod()" class="btn btn-success">mod</button>
+                </div>
+            </div>
+            <div id="history-panel" class="history-panel hidden">
+                <h3>📜 History</h3>
+                <ul id="history-list"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
